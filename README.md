@@ -24,6 +24,7 @@ Using the run_analysis.R file
 -The average of each variable for each activity and each subject is then calculated using the dplyr summarise_each function and stored in the dat2 object  
 -Finally the dat2 data is written into a txt file called Tidy Data.txt
 
+
 5) To read the data.  
 -Do note the data is not meant to be viewed in the notepad text editor.  
 -To read the data, make sure Tidy Data.txt is in your working directory.
