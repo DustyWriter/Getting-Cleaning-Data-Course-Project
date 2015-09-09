@@ -1,5 +1,6 @@
 #Loading libraries
 library(dplyr)
+library(plyr)
 
 #reading relevant data into R
 X_test<-read.table("UCI HAR Dataset/test/X_test.txt")
@@ -18,7 +19,8 @@ subject<-rbind(subject_test,subject_train)
 names(X)<-features[,2]
 names(subject)<-"Subject"
 names(activity_labels)<-c("Activity #", "Activity_Labels")
-y_labeled<-merge(y,activity_labels,by.x="V1",by.y="Activity #")
+names(y)<-c("Activity #")
+y_labeled<-join(y,activity_labels,by="Activity #")
 
 
 #Step 2: Extracts only the measurements on the mean and standard deviation for each measurement
@@ -35,4 +37,6 @@ write.table(dat2,"Tidy Data.txt",row.names=FALSE)
 
 #To read the data
 #Make sure Tidy Data.txt is in the working directory
-#read.table("Tidy Data.txt",header=TRUE)
+read.table("Tidy Data.txt",header=TRUE)
+
+#You should see a tidy data set using this command
